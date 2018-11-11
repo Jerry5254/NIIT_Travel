@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.niit.travel.dao.CommentDao">
+    <select id="getCommentList" resultType="com.niit.travel.entity.Comment">
+        select *
+        from comment
+    </select>
+
+    <select id="getCommentById" resultType="com.niit.travel.entity.Comment">
+        select *
+        from comment
+        where COId=#{commentId}
+    </select>
+
+    <select id="getCommentByUser" resultType="com.niit.travel.entity.Comment">
+        select *
+        from comment
+        where COUser_id=#{userId}
+    </select>
+
+    <select id="getCommentByTN" resultType="com.niit.travel.entity.Comment">
+        select *
+        from comment
+        where COTN_id=#{COTN_id}
+    </select>
+
+    <insert id="insertComment" parameterType="com.niit.travel.entity.Comment" useGeneratedKeys="true" keyProperty="COId" keyColumn="COId">
+        insert into
+        comment(COUser_id,COTN_id,CODate,CODetails)
+        values
+        (#{COUser_id},#{COTN_id},#{CODate},#{CODetails})
+    </insert>
+
+    <update id="updateComment" parameterType="com.niit.travel.entity.Comment">
+        update comment
+        <set>
+            <if test="CODate != null">CODate=#{CODate}</if>
+            <if test="COTN_id != null">COTN_id=#{COTN_id}</if>
+            <if test="CODetails != null">CODetails=#{CODetails}</if>
+            <if test="COStatus != null">COStatus=#{COStatus}</if>
+            <if test="COUser_id != null">COUser_id=#{COUser_id}</if>
+        </set>
+        where COId=#{COId}
+    </update>
+
+    <delete id="deleteComment">
+        delete from comment
+        where COId=#{commentId}
+    </delete>
+</mapper>

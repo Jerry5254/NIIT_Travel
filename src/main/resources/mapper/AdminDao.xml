@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.niit.travel.dao.AdminDao">
+    <select id="queryAdminById" resultType="com.niit.travel.entity.Admin">
+        select Admin_id,Admin_Mail,Admin_Pass
+        from admin
+        where Admin_id=#{adminId}
+    </select>
+
+    <select id="queryAdminByMail" resultType="com.niit.travel.entity.Admin">
+        select Admin_id,Admin_Mail,Admin_Pass
+        from admin
+        where Admin_Mail=#{adminMail}
+    </select>
+</mapper>

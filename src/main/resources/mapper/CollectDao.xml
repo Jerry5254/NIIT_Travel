@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.niit.travel.dao.CollectDao">
+    <select id="getCollectList" resultType="com.niit.travel.entity.Collect">
+        select *
+        from collect
+    </select>
+
+    <select id="getCollectById" resultType="com.niit.travel.entity.Collect">
+        select *
+        from collect
+        where Collect_Id=#{collectId}
+    </select>
+
+    <select id="getCollectByUserId" resultType="com.niit.travel.entity.Collect">
+        select *
+        from collect
+        where Collect_Userid=#{userId}
+    </select>
+
+    <select id="getCollectByNoteId" resultType="com.niit.travel.entity.Collect">
+        select *
+        from collect
+        where Collect_Noteid=#{noteId}
+    </select>
+
+    <insert id="insertCollect" parameterType="com.niit.travel.entity.Collect" useGeneratedKeys="true" keyColumn="Collect_Id" keyProperty="Collect_Id">
+        insert into
+        collect(Collect_Noteid,Collect_Userid,Collect_Date)
+        values
+        (#{Collect_Noteid},#{Collect_Userid},#{Collect_Date})
+    </insert>
+
+    <update id="updateCollect" parameterType="com.niit.travel.entity.Collect">
+        update collect
+        <set>
+            <if test="Collect_Noteid != null">Collect_Noteid=#{Collect_Noteid}</if>
+            <if test="Collect_Userid != null">Collect_Userid=#{Collect_Userid}</if>
+            <if test="Collect_Date != null">Collect_Date=#{Collect_Date}</if>
+        </set>
+        where Collect_Id=#{Collect_Id}
+    </update>
+
+    <delete id="deleteCollect">
+        delete
+        from collect
+        where Collect_Id=#{collectId}
+    </delete>
+</mapper>
