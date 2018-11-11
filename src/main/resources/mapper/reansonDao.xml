@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.travel.dao.reasonDao">
+    <select id="queryReason" resultType="com.travel.travel.entity.reason">
+        SELECT  RId,RUser_id,RCN_Title,RCN_id,RDetails,RDate
+        FROM reason
+        ORDER BY RId
+        DESC
+    </select>
+    <select id="queryReasonByUserId" resultType="com.travel.travel.entity.reason">
+        SELECT  RId,RUser_id,RCN_Title,RCN_id,RDetails,RDate
+        FROM reason
+        WHERE
+        RUser_id=#{RUser_id}
+    </select>
+    <insert id="insertReason" useGeneratedKeys="true" keyProperty="RId"
+            keyColumn="RId" parameterType="com.travel.travel.entity.reason">
+        INSERT INTO
+        reason(RUser_id,RCN_Title,RCN_id,RDetails,RDate)
+        VALUES
+        (#{RUser_id},#{RCN_Title},#{RCN_id},#{RDetail},#{RDate})
+    </insert>
+</mapper>

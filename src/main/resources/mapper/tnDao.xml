@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.travel.dao.tnDao">
+    <select id="queryTravelNote" resultType="com.travel.travel.entity.tn">
+        SELECT  TNId,TNAuthor_id,TN_Date,TN_Title,TN_Content,TN_Status,TN_Pics,TNHit_Number,TNCity
+        FROM tn
+        ORDER BY TNHit_Number
+        DESC
+    </select>
+    <select id="queryTravelNoteByCity" resultType="com.travel.travel.entity.tn">
+        SELECT  TNId,TNAuthor_id,TN_Date,TN_Title,TN_Content,TN_Status,TN_Pics,TNHit_Number,TNCity
+        FROM tn
+        WHERE
+        TNCity=#{TNCity}
+    </select>
+    <insert id="insertTravelNote" useGeneratedKeys="true" keyProperty="TNId"
+            keyColumn="TNId" parameterType="com.travel.travel.entity.tn">
+        INSERT INTO
+        tn(TNAuthor_id,TN_Date,TN_Title,TN_Content,TN_Pics,TNCity,TN_Status)
+        VALUES
+        (#{TNAuthor_id},#{TN_Date},#{TN_Title},#{TN_Content},#{TN_Pics},#{TNCity},#{TN_Status})
+    </insert>
+    <update id="updateTravelNote" parameterType="com.travel.travel.entity.tn">
+        update tn
+        <set>
+            <if test="TN_Title!=null">TN_Title=#{TN_Title},</if>
+            <if test="TN_Content!=null">TN_Content=#{TN_Content},</if>
+            <if test="TN_Pics!=null">TN_Pics=#{TN_Pics},</if>
+            <if test="TNCity!=null">TNCity=#{TNCity},</if>
+            <if test="TN_Status!=null">TN_Status=#{TN_Status},</if>
+            <if test="TNHit_Number!=null">TNHit_Number=#{TNHit_Number},</if>
+        </set>
+        where TNId=#{TNId}
+    </update>
+    <delete id="deleteTravelNote">
+        delete from
+        tn
+        where
+        TNId=#{TNId}
+    </delete>
+</mapper>
