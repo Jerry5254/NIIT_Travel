@@ -3,10 +3,7 @@ package com.niit.travel.Web;
 import com.niit.travel.entity.City;
 import com.niit.travel.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,19 +17,24 @@ public class CityController {
     private CityService cityService;
 
     @RequestMapping(value="/citylist",method = RequestMethod.GET)
+    @ResponseBody
     public Map<String,Object> getCityList()
     {
         Map<String,Object> modelMap=new HashMap<>();
-        List<City> cityList=cityService.getAllCity();
-        List<City> effecedList= new ArrayList<>();
-        for(City city:cityList)
-        {
-            if(city.getCStatus().equals("Y"))
-            {
-                effecedList.add(city);
+        try {
+            List<City> cityList = cityService.getAllCity();
+            List<City> effecedList = new ArrayList<>();
+            for (City city : cityList) {
+                if (city.getCStatus().equals("Y")) {
+                    effecedList.add(city);
+                }
             }
+            modelMap.put("cityList", effecedList);
+            modelMap.put("success",true);
+        }catch(Exception e){
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.getMessage());
         }
-        modelMap.put("cityList",effecedList);
         return modelMap;
     }
 
