@@ -1,4 +1,9 @@
-package com.travel.travel.entity;
+/*********************************************************
+ * 文件名: scenic
+ * 作者: 林夏媚
+ * 说明:
+ *********************************************************/
+package com.niit.travel.entity;
 
 public class scenic {
     private Integer SId;

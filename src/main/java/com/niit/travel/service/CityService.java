@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: CityService
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.service;
 
 import com.niit.travel.entity.City;
@@ -12,4 +17,5 @@ public interface CityService {
     boolean deleteCity(int cityId);
     boolean modifyCity(City city);
     List<City> getOrderCity(String property);
+    boolean deletePic(int cityId,String addr);
 }

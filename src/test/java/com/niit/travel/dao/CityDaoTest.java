@@ -47,7 +47,7 @@ public class CityDaoTest {
     @Test
     public void updateCity() {
         City city=new City();
-        city.setCId(2);
+        city.setCId(9);
         city.setCStatus("Y");
         int effectedNum=cityDao.updateCity(city);
         assertEquals(1,effectedNum);

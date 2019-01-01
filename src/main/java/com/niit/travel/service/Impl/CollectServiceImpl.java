@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: CollectServiceImpl
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.service.Impl;
 
 import com.niit.travel.dao.CollectDao;

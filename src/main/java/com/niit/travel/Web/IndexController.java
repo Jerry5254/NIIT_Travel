@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: IndexController
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.Web;
 
 import org.springframework.stereotype.Controller;
@@ -13,5 +18,11 @@ public class IndexController {
     @RequestMapping(value="/addfood")
     public String addFood(){
         return "addfood";
+    }
+
+
+    @RequestMapping(value="/city")
+    public String city(){
+        return "citytest";
     }
 }

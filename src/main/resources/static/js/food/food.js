@@ -19,9 +19,9 @@ $(function () {
             cache:false,
             success:function(data){
                 if(data.success){
-                    $.toast('提交成功！');
+                    alert('提交成功！');
                 }else{
-                    $.toast('提交失败！'+data.errMsg);
+                    alert('提交失败！'+data.errMsg);
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.travel.travel.handler;
+package com.niit.travel.handler;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

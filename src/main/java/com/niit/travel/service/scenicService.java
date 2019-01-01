@@ -1,6 +1,11 @@
-package com.travel.travel.service;
+/*********************************************************
+ * 文件名: scenicService
+ * 作者: 林夏媚
+ * 说明:
+ *********************************************************/
+package com.niit.travel.service;
 
-import com.travel.travel.entity.scenic;
+import com.niit.travel.entity.scenic;
 
 import java.util.List;
 
@@ -9,5 +14,8 @@ public interface scenicService {
     List<scenic> queryScenicByCity(String SCity);
     boolean insertScenic(scenic scenic);
     boolean updateScenic(scenic scenic);
-    boolean deleteTravelNote(int SId);
+    scenic getScenicById(int scenicId);
+    scenic getScenicByName(String scenicName);
+    boolean deleteScenic(int scenicId);
+    boolean deletePic(int scenicId,String addr);
 }

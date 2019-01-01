@@ -34,7 +34,8 @@
             <if test="CName!=null">CName=#{CName},</if>
             <if test="CStatus!=null">CStatus=#{CStatus},</if>
             <if test="CDes!=null">CDes=#{CDes},</if>
-            <if test="CHit_Number != null">CHit_Number=#{CHit_Number}</if>
+            <if test="CHitNumber != null">CHitNumber=#{CHitNumber}</if>
+            <if test="CPic!=null">CPic=#{CPic},</if>
         </set>
         where CId=#{CId}
     </update>

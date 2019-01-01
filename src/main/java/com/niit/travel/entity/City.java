@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: City
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.entity;
 
 public class City {
@@ -5,7 +10,26 @@ public class City {
     private String CName;
     private String CStatus;
     private String CDes;
-    private Integer CHit_Number;
+    private String CPic;
+    private Integer CHitNumber;
+
+    public City() {
+    }
+
+    public City(Integer CId, String CName, String CStatus, String CDes, String CPic, Integer CHitNumber) {
+        this.CId = CId;
+        this.CName = CName;
+        this.CStatus = CStatus;
+        this.CDes = CDes;
+        this.CPic = CPic;
+        this.CHitNumber = CHitNumber;
+    }
+
+    public City(Integer CId, String CName, String CDes) {
+        this.CId = CId;
+        this.CName = CName;
+        this.CDes = CDes;
+    }
 
     public Integer getCId() {
         return CId;
@@ -39,11 +63,19 @@ public class City {
         this.CDes = CDes;
     }
 
-    public Integer getCHit_Number() {
-        return CHit_Number;
+    public String getCPic() {
+        return CPic;
     }
 
-    public void setCHit_Number(Integer CHit_Number) {
-        this.CHit_Number = CHit_Number;
+    public void setCPic(String CPic) {
+        this.CPic = CPic;
+    }
+
+    public Integer getCHitNumber() {
+        return CHitNumber;
+    }
+
+    public void setCHitNumber(Integer CHitNumber) {
+        this.CHitNumber = CHitNumber;
     }
 }

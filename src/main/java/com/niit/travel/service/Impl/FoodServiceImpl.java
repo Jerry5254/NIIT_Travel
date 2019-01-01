@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: FoodServiceImpl
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.service.Impl;
 
 import com.niit.travel.dao.FoodDao;
@@ -26,14 +31,14 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public Food getFoodByCity(String cityName) {
+    public List<Food> getFoodByCity(String cityName) {
         return foodDao.getFoodByCity(cityName);
     }
 
     @Transactional
     @Override
     public boolean addFood(Food food) {
-        if(food.getFName()!=null && "".equals(food.getFName()))
+        if(food.getFName()!=null && !"".equals(food.getFName()))
         {
             try {
                 int effectedNum = foodDao.insertFood(food);

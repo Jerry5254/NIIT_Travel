@@ -1,6 +1,13 @@
 $(function(){
     var getCityUrl='/travel/city/citylist';
+
     getCityList();
+
+    $('#GZ').css({"background-color":" #1a4029","color":"white"});
+
+
+
+
     function getCityList() {
         $.getJSON(getCityUrl, function (data) {
             if (data.success) {
@@ -21,4 +28,6 @@ $(function(){
         //     });
         // });
     }
+
+
 })

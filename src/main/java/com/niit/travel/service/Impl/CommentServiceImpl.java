@@ -1,3 +1,8 @@
+/*********************************************************
+ * 文件名: CommentServiceImpl
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.service.Impl;
 
 import com.niit.travel.dao.CommentDao;
@@ -37,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     @Override
     public boolean addComment(Comment comment) {
-        if(comment.getCODetails()!=null && "".equals(comment.getCODetails()))
+        if(comment.getCODetails()!=null && !"".equals(comment.getCODetails()))
         {
             try {
                 int effectedNum = commentDao.insertComment(comment);

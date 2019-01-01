@@ -1,9 +1,16 @@
+/*********************************************************
+ * 文件名: CityDao
+ * 作者: 魏捷宇
+ * 说明:
+ *********************************************************/
 package com.niit.travel.dao;
 
 import com.niit.travel.entity.City;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CityDao {
     List<City> getCityList();
     City getCityById(int cityId);
@@ -12,4 +19,5 @@ public interface CityDao {
     int updateCity(City city);
     int deleteCity(int cityId);
     List<City> getCityListInOrder(String property);
+
 }
